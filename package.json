@@ -1,0 +1,21 @@
+{
+  "name": "cloud-sync-ts-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }
+  },
+  "files": ["dist", "src", "scripts", "supabase", "examples", "test", "tsconfig*.json", "README.md"],
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "example": "npm run build && node examples/notes.mjs",
+    "prepare": "npm run build"
+  },
+  "devDependencies": { "typescript": "^6.0.3" }
+}
